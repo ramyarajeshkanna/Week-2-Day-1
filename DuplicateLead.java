@@ -23,6 +23,13 @@ public class DuplicateLead {
 		//Get the Title of Resulting Page.
 		System.out.println("Page Title is - "+CreateLead.driver.getTitle());
 	}
+	static void verifyDuplicateLead() {
+		WebElement elementUpdatedFirstName = CreateLead.driver.findElement(By.id("viewLead_firstName_sp"));
+		if(elementUpdatedFirstName.getText().equals("Rajesh"))
+			System.out.println("Test Case PASS");
+		else
+			System.out.println("Test Case FAIL");
+	}
 	public static void main(String[] args) {
 		// Open Browser and Launch URL
 		CreateLead.openUrl();
@@ -41,6 +48,9 @@ public class DuplicateLead {
 		
 		//Duplicate Lead and update details
 		duplicateLeadAndUpdate();
+		
+		//Verify Duplicated Lead is updated
+		verifyDuplicateLead();
 
 	}
 
